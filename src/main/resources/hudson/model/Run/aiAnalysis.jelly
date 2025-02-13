@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j:jelly escape-by-default="true" xmlns:j="jelly:core" xmlns:l="/lib/layout">
+  <l:layout title="AI Analysis Results">
+    <l:main_panel>
+      <h1>AI Analysis for Build ${it.getRun().getDisplayName()}</h1>
+      <div>
+        <j:if test="${it.getAnalysisResults() != null && !it.getAnalysisResults().isEmpty()}">
+          <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+              <th>Error/Exception</th>
+              <th>AI Suggestion</th>
+            </tr>
+            <j:forEach var="entry" items="${it.getAnalysisResults().entrySet()}">
+              <tr>
+                <td><j:out value="${entry.key}" /></td>
+                <td><j:out value="${entry.value}" /></td>
+              </tr>
+            </j:forEach>
+          </table>
+        </j:if>
+        <j:if test="${it.getAnalysisResults() == null || it.getAnalysisResults().isEmpty()}">
+          <p>No errors or exceptions found in the build log or AI Analysis is not configured.</p>
+        </j:if>
+      </div>
+    </l:main_panel>
+  </l:layout>
+</j:jelly>

@@ -1,0 +1,10 @@
+<?jelly escape-by-default='true'?>
+<f:entry title="Enable AI Analysis" field="enabled">
+  <f:checkbox/>
+</f:entry>
+<f:entry title="LLM URL" field="llmUrl">
+  <f:textbox/>
+</f:entry>
+<f:entry title="Credentials ID" field="credentialsId">
+  <f:textbox/>
+</f:entry>
